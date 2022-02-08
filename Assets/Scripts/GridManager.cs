@@ -24,12 +24,12 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var tileSelected = y == 4 ? _pathTile : _tilePrefab;
+                var isTrack = (y == 4 && x <= 2) || (x == 2 && y > 4);
+                var tileSelected = isTrack ? _pathTile : _tilePrefab;
                 var spawnedTile = Instantiate(tileSelected, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
 
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-                var isTrack = ((y == 4 && x <= 2) || (y >= 4 && x == 2));
                 spawnedTile.Init(isOffset, isTrack);
 
 
