@@ -23,13 +23,12 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        health -= 1;
-        _damage.SetActive(true);
-        print("mouseover");
         StartCoroutine(takeDamage());
     }
    IEnumerator takeDamage()
     {
+        health -= 1;
+        _damage.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         _damage.SetActive(false);
     }

@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 2080735062880880931}
   - component: {fileID: 2659577424538598041}
   - component: {fileID: 339982240081978287}
+  - component: {fileID: 7897236036293855485}
   - component: {fileID: 2452541541038510863}
   m_Layer: 0
   m_Name: Tile
@@ -268,6 +269,20 @@ MonoBehaviour:
   _renderer: {fileID: 2659577424538598041}
   _highlight: {fileID: 1290878367192210397}
   _greenT: {fileID: 5208780929373186442}
+  _towerTile: {fileID: 7897236036293855485}
+--- !u!114 &7897236036293855485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7577153866068767309}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43479d11b1b40e54b8ebf055b540f019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 5948052685882348738, guid: 436d919762668e74e88dd7cb455c07e8, type: 3}
 --- !u!61 &2452541541038510863
 BoxCollider2D:
   m_ObjectHideFlags: 0
