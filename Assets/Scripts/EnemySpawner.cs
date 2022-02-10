@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy _enemyPrefab;
 
 
-    private List<Enemy> enemyList = new List<Enemy>();
+    public List<Enemy> enemyList = new List<Enemy>();
 
     void Start()
     {

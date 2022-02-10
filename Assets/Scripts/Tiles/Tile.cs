@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
         _greenT.SetActive(true);
-        
+        gameObject.GetComponent<TowerTile>().enabled  = true;
     }
 
     private void OnMouseEnter()
