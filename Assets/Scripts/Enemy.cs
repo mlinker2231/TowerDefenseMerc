@@ -23,9 +23,9 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        StartCoroutine(takeDamage());
+        StartCoroutine(TakeDamage());
     }
-   IEnumerator takeDamage()
+   IEnumerator TakeDamage()
     {
         health -= 1;
         _damage.SetActive(true);

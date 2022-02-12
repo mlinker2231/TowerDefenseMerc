@@ -4,43 +4,61 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+
+    [SerializeField] private Enemy _enemyPrefab;
+
     void Start()
     {
+        fire();
         
     }
 
     void Update()
     {
-
+        
     }
 
     private void fire()
     {
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
 
-        Transform[] transforms = new Transform[enemyManager.enemyList.Count];
+        Enemy[] enemies = new Enemy[enemyManager.enemyList.Count];
 
-        for (int x = 0; x < transforms.Length; x++)
+        for (int x = 0; x < enemies.Length; x++)
         {
-            transforms[x] = enemyManager.enemyList[x].transform;
+            if (enemyManager.enemyList[x] != null)
+            {
+                enemies[x] = enemyManager.enemyList[x];
+            }else
+            {
+                Enemy enemy = Instantiate(_enemyPrefab, new Vector3(100, 100, 100), Quaternion.identity);
+                
+                enemies[x] = enemy;
+            }
+           
         }
+        var closestEnemy = GetClosestEnemy(enemies);
+        closestEnemy.StartCoroutine("TakeDamage");
 
     }
 
-    private Transform GetClosestEnemy(Transform[] enemies)
+    private Enemy GetClosestEnemy(Enemy[] enemies)
     {
+        Enemy enemy = null;
         Transform tMin = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
-        foreach (Transform t in enemies)
+        foreach (Enemy t in enemies)
         {
-            float dist = Vector3.Distance(t.position, currentPos);
+            float dist = Vector3.Distance(t.transform.position, currentPos);
             if (dist < minDist)
             {
-                tMin = t;
+                enemy = t;
+                tMin = t.transform;
                 minDist = dist;
             }
         }
-        return tMin;
+
+        return enemy;
     }
 }
