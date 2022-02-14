@@ -29,18 +29,29 @@ public class BulletScript : MonoBehaviour
             if (enemyManager.enemyList[x] != null)
             {
                 enemies[x] = enemyManager.enemyList[x];
-            }else
+            }
+            else
             {
                 Enemy enemy = Instantiate(_enemyPrefab, new Vector3(100, 100, 100), Quaternion.identity);
-                
+
                 enemies[x] = enemy;
             }
-           
+
         }
         var closestEnemy = GetClosestEnemy(enemies);
         closestEnemy.StartCoroutine("TakeDamage");
-
+        StartCoroutine(Move(closestEnemy));
+        //transform.position = new Vector3(((transform.position.x + closestEnemy.transform.position.x) / 2), ((transform.position.y + closestEnemy.transform.position.y) / 2), -2);
     }
+    IEnumerator Move(Enemy closestEnemy)
+    {
+        for(int x = 1; x < 100; x++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            transform.position = new Vector3(((transform.position.x + closestEnemy.transform.position.x) / (100/x)), ((transform.position.y + closestEnemy.transform.position.y) / (100/x)), -2);
+        }
+    }
+
 
     private Enemy GetClosestEnemy(Enemy[] enemies)
     {

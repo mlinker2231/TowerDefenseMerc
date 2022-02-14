@@ -15,6 +15,10 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.y > 80)
+        {
+            StartCoroutine("TakeDamage");
+        }
         if (health == 0)
         {
             Destroy(gameObject);
@@ -23,7 +27,6 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        StartCoroutine(TakeDamage());
     }
    IEnumerator TakeDamage()
     {
