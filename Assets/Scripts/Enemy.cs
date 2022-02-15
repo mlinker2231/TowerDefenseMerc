@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.y > 80)
         {
-            StartCoroutine("TakeDamage");
+            Destroy(gameObject);
         }
         if (health == 0)
         {
@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
     }
    IEnumerator TakeDamage()
     {
-        health -= 1;
         _damage.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         _damage.SetActive(false);
+        health -= 1;
     }
 }

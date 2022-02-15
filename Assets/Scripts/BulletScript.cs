@@ -39,23 +39,55 @@ public class BulletScript : MonoBehaviour
 
         }
         var closestEnemy = GetClosestEnemy(enemies);
-        closestEnemy.StartCoroutine("TakeDamage");
         StartCoroutine(Move(closestEnemy));
-        //transform.position = new Vector3(((transform.position.x + closestEnemy.transform.position.x) / 2), ((transform.position.y + closestEnemy.transform.position.y) / 2), -2);
+        closestEnemy.StartCoroutine("TakeDamage");
     }
     IEnumerator Move(Enemy closestEnemy)
     {
-        for(int x = 1; x < 100; x++)
+
+
+        for (int x = 1; x < 100; x++)
         {
-            yield return new WaitForSeconds(0.01f);
-            transform.position = new Vector3(((transform.position.x + closestEnemy.transform.position.x) / (100/x)), ((transform.position.y + closestEnemy.transform.position.y) / (100/x)), -2);
+            if (closestEnemy != null)
+            {
+                var posE = closestEnemy.transform.position;
+                var pos = transform.position;
+                yield return new WaitForSeconds(0.01f);
+                if (pos.x > posE.x)
+                {
+                    if (pos.y > posE.y)
+                    {
+                        transform.position = new Vector3(pos.x - .05f, pos.y - .05f);
+                    }
+                    else
+                    {
+                        transform.position = new Vector3(pos.x - .05f, pos.y + .05f);
+                    }
+                }
+                else
+                {
+                    if (pos.y > posE.y)
+                    {
+                        transform.position = new Vector3(pos.x + .05f, pos.y - .05f);
+                    }
+                    else
+                    {
+                        transform.position = new Vector3(pos.x + .05f, pos.y + .05f);
+                    }
+                }
+            }else
+            {
+                Destroy(gameObject);
+                break;
+            }
         }
+        Destroy(gameObject);
     }
 
 
     private Enemy GetClosestEnemy(Enemy[] enemies)
     {
-        Enemy enemy = null;
+        Enemy enemy = enemies[0];
         Transform tMin = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
