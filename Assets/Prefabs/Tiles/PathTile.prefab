@@ -77,6 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 339982240081978287, guid: 07734b8b7a76942d0bae5c6281c2c3fb, type: 3}
+    - {fileID: 7897236036293855485, guid: 07734b8b7a76942d0bae5c6281c2c3fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 07734b8b7a76942d0bae5c6281c2c3fb, type: 3}
 --- !u!1 &4167643097389517511 stripped
 GameObject:
@@ -116,3 +117,4 @@ MonoBehaviour:
   _renderer: {fileID: 8365915182924694035}
   _highlight: {fileID: 4691373202263843671}
   _greenT: {fileID: 1781255785840201984}
+  _towerTile: {fileID: 0}

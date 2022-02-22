@@ -9,7 +9,6 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject _highlight;
     [SerializeField] private GameObject _greenT;
     [SerializeField] private Component _towerTile;
-
     
 
     public void Init(bool isOffset, bool isTrack) 
@@ -22,6 +21,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        
         _greenT.SetActive(true);
         gameObject.GetComponent<TowerTile>().enabled  = true;
     }
