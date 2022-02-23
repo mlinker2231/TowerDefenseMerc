@@ -8,12 +8,14 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject _damage;
 
+    private MoneyManager _moneyManager;
+
     void Start()
     {
-        
-    }
+              _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+}
 
-    void Update()
+void Update()
     {
         if (transform.position.y > 80)
         {
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
         }
         if (health == 0)
         {
+            _moneyManager.killedEnemy();
             Destroy(gameObject);
         }
     }

@@ -24,7 +24,7 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var isTrack = (y == 4 && x <= 2) || (x == 2 && y > 4) || (x > 2 && x < 8 && y == 8) || (x == 7 && y > 0) || (x == 8 && y == 1);
+                var isTrack = ((y == 4 && x <= 2) || (x == 2 && y > 4 && y < 9) || (x > 2 && x < 8 && y == 8) || (x == 7 && y > 2 && y < 9) || (x > 6 && y == 2) );
                 var tileSelected = isTrack ? _pathTile : _tilePrefab;
                 var spawnedTile = Instantiate(tileSelected, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";

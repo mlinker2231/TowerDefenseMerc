@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     if (position.x >= 7)
                     {
-                        if (position.y <= 1)
+                        if (position.y <= 2)
                             enemy.transform.Translate(new Vector3(speed, 0));
                         else
                             enemy.transform.Translate(new Vector3(0, -speed));

@@ -39,8 +39,12 @@ public class BulletScript : MonoBehaviour
 
         }
         var closestEnemy = GetClosestEnemy(enemies);
-        StartCoroutine(Move(closestEnemy));
-        closestEnemy.StartCoroutine("TakeDamage");
+        if (Vector3.Distance(closestEnemy.transform.position, transform.position) < 4)
+        {
+            StartCoroutine(Move(closestEnemy));
+            closestEnemy.StartCoroutine("TakeDamage");
+        }
+        else Destroy(gameObject);
     }
     IEnumerator Move(Enemy closestEnemy)
     {
@@ -52,27 +56,27 @@ public class BulletScript : MonoBehaviour
             {
                 var posE = closestEnemy.transform.position;
                 var pos = transform.position;
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.003f);
                 if (pos.x > posE.x)
                 {
                     if (pos.y > posE.y)
                     {
-                        transform.position = new Vector3(pos.x - .05f, pos.y - .05f);
+                        transform.position = new Vector3(pos.x - .03f, pos.y - .03f);
                     }
                     else
                     {
-                        transform.position = new Vector3(pos.x - .05f, pos.y + .05f);
+                        transform.position = new Vector3(pos.x - .03f, pos.y + .03f);
                     }
                 }
                 else
                 {
                     if (pos.y > posE.y)
                     {
-                        transform.position = new Vector3(pos.x + .05f, pos.y - .05f);
+                        transform.position = new Vector3(pos.x + .03f, pos.y - .03f);
                     }
                     else
                     {
-                        transform.position = new Vector3(pos.x + .05f, pos.y + .05f);
+                        transform.position = new Vector3(pos.x + .03f, pos.y + .03f);
                     }
                 }
             }else
