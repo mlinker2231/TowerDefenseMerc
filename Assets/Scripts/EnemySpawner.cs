@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private int _height, _numberOfEnemies;
-    [SerializeField] private float _speed;
     [SerializeField] private Enemy _enemyPrefab;
 
 
@@ -14,45 +13,15 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemies());
+        InvokeRepeating("CheckForEnemies", 3, 3);
     }
     private void Update()
     {
-        moveEnemies();
+        
+   
     }
 
-    private void moveEnemies()
-    {
-        float speed = _speed * Time.deltaTime;
-        foreach (Enemy enemy in enemyList)
-        {
-            if (enemy != null)
-            {
-                var position = enemy.transform.position;
-                if (position.x < 2)
-                    enemy.transform.Translate(new Vector3(speed, 0));
-                if (position.x > 2 && position.x <= 2.2)
-                {
-                    if (position.y <= 8)
-                        enemy.transform.Translate(new Vector3(0, speed));
-                    else enemy.transform.Translate(new Vector3(speed, 0));
-                }
-                else
-                if (position.x >= 2)
-                {
-                    if (position.x >= 7)
-                    {
-                        if (position.y <= 2)
-                            enemy.transform.Translate(new Vector3(speed, 0));
-                        else
-                            enemy.transform.Translate(new Vector3(0, -speed));
-                    }
-
-                    else enemy.transform.Translate(new Vector3(speed, 0));
-
-                }
-            }
-        }
-    }
+    
 
     IEnumerator SpawnEnemies()
     {
@@ -66,5 +35,15 @@ public class EnemySpawner : MonoBehaviour
 
         }
     }
+    private void CheckForEnemies()
+    {
+        print(enemyList.Count);
+     if (enemyList.Count == 0)
+        {
+            StartCoroutine(SpawnEnemies());
+        }
+
+    }
+
 
 }

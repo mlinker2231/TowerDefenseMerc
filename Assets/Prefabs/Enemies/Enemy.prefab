@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   _damage: {fileID: 6180168864315457375}
+  _speed: 0.75
 --- !u!58 &7193328588398130463
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class BulletScript : MonoBehaviour
             }
             else
             {
-                Enemy enemy = Instantiate(_enemyPrefab, new Vector3(100, 100, 100), Quaternion.identity);
+                Enemy enemy = Instantiate(_enemyPrefab, new Vector3(0, 100, 100), Quaternion.identity);
 
                 enemies[x] = enemy;
             }
@@ -108,4 +108,5 @@ public class BulletScript : MonoBehaviour
 
         return enemy;
     }
+ 
 }
