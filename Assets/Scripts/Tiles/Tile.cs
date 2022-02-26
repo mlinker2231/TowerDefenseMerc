@@ -27,10 +27,16 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_moneyManager.buyTower())
-        {
-            _greenT.SetActive(true);
-            gameObject.GetComponent<TowerTile>().enabled = true;
+ 
+            if (_greenT.activeSelf)
+            { }
+            else
+            {
+            if (_moneyManager.buyTower())
+            {
+                _greenT.SetActive(true);
+                gameObject.GetComponent<TowerTile>().enabled = true;
+            }
         }
     }
 

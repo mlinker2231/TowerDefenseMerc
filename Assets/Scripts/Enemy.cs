@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             
         }
-        if (health == 0)
+        if (health <= 0)
         {
             _enemyManager.enemyList.Remove(this);
             _moneyManager.killedEnemy();
