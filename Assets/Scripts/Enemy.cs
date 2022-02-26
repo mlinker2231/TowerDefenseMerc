@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int health;
+    [SerializeField] public int health;
     [SerializeField] private GameObject _damage;
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
 
     private EnemySpawner _enemyManager;
     private MoneyManager _moneyManager;
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         }
         if (transform.position.x > 12)
         {
+            _enemyManager.enemyList.Remove(this);
             lifeManager.loseLife();
             Destroy(gameObject);
             
