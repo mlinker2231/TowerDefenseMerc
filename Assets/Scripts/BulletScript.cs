@@ -20,10 +20,13 @@ public class BulletScript : MonoBehaviour
 
     private void fire()
     {
+
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
+        if (enemyManager.enemyList.Count == 0)
+            DestroyImmediate(gameObject);
 
         Enemy[] enemies = new Enemy[enemyManager.enemyList.Count];
-
+        
         for (int x = 0; x < enemies.Length; x++)
         {
             if (enemyManager.enemyList[x] != null)

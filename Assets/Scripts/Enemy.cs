@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private GameObject _damage;
     [SerializeField] private float _speed;
+
+    private EnemySpawner _enemyManager;
     private MoneyManager _moneyManager;
     private LifeManager lifeManager;
 
@@ -15,6 +17,8 @@ public class Enemy : MonoBehaviour
     {
               _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
               lifeManager = GameObject.Find("EnemyManager").GetComponent<LifeManager>();
+               _enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
+
 
     }
 
@@ -33,6 +37,7 @@ public class Enemy : MonoBehaviour
         }
         if (health == 0)
         {
+            _enemyManager.enemyList.Remove(this);
             _moneyManager.killedEnemy();
             Destroy(gameObject);
         }
