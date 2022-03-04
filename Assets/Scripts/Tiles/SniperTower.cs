@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SniperTower : TowerTile
 {
-    // Start is called before the first frame update
+    [SerializeField] private Enemy _enemyPrefab;
+
+
     void Start()
+    {
+        InvokeRepeating("Shoot", 0, 5);
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Shoot()
     {
-        
+        EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
+        if (enemyManager.enemyList.Count == 0)
+        {
+            
+        }else
+        {
+            int count = enemyManager.enemyList.Count;
+            Enemy currentEnemy = enemyManager.enemyList[0];
+            currentEnemy.StartCoroutine("TakeSnipeDamage");
+        }
     }
 }

@@ -154,8 +154,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1479236833}
-  - {fileID: 2018014790}
   - {fileID: 1639242552}
+  - {fileID: 2018014790}
   - {fileID: 643499464}
   m_Father: {fileID: 1152084287}
   m_RootOrder: 1
@@ -633,7 +633,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643499466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017512124}
+        m_TargetAssemblyTypeName: TowerManager, Assembly-CSharp
+        m_MethodName: SelectBomb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643499466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c04111f8135944f69e555a0670eb5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerSelected: {fileID: 0}
 --- !u!4 &1017512125
 Transform:
   m_ObjectHideFlags: 0
@@ -1339,7 +1352,7 @@ RectTransform:
   m_Children:
   - {fileID: 2020684546}
   m_Father: {fileID: 218529050}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1389,7 +1402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1639242554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017512124}
+        m_TargetAssemblyTypeName: TowerManager, Assembly-CSharp
+        m_MethodName: SelectElectric
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1639242554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,7 +1621,7 @@ RectTransform:
   m_Children:
   - {fileID: 1556060801}
   m_Father: {fileID: 218529050}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1646,7 +1671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2018014792}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017512124}
+        m_TargetAssemblyTypeName: TowerManager, Assembly-CSharp
+        m_MethodName: SelectSniper
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2018014792
 MonoBehaviour:
   m_ObjectHideFlags: 0

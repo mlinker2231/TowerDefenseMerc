@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public int health;
     [SerializeField] private GameObject _damage;
+    [SerializeField] private GameObject _sniperDamage;
     [SerializeField] public float _speed;
 
     private EnemySpawner _enemyManager;
@@ -84,4 +85,12 @@ public class Enemy : MonoBehaviour
         _damage.SetActive(false);
         health -= 1;
     }
+    IEnumerator TakeSnipeDamage()
+    {
+        _sniperDamage.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        _sniperDamage.SetActive(false);
+        health -= 5;
+    }
+
 }

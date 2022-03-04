@@ -9,11 +9,16 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject _highlight;
     [SerializeField] private GameObject _greenT;
     [SerializeField] private Component _towerTile;
+    [SerializeField] private GameObject _sniperSkin;
+
 
     private MoneyManager _moneyManager;
+    private TowerManager _towerManager;
     private void Start()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+        _towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
+
 
     }
 
@@ -34,8 +39,17 @@ public class Tile : MonoBehaviour
             {
             if (_moneyManager.buyTower())
             {
-                _greenT.SetActive(true);
-                gameObject.GetComponent<TowerTile>().enabled = true;
+                TowerManager towerManager = _towerManager.GetComponent<TowerManager>();
+                if (towerManager.towerSelected.Equals("Sniper"))
+                {
+                    _sniperSkin.SetActive(true);
+                    gameObject.GetComponent<SniperTower>().enabled = true;
+                }
+                else
+                {
+                    _greenT.SetActive(true);
+                    gameObject.GetComponent<TowerTile>().enabled = true;
+                }
             }
         }
     }

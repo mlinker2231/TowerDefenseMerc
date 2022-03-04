@@ -58,19 +58,21 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/LifeManager.cs" />
     <Compile Include="Assets/Scripts/Tiles/PathTile.cs" />
+    <Compile Include="Assets/Scripts/Tiles/BombTower.cs" />
     <Compile Include="Assets/Scripts/MoneyManager.cs" />
     <Compile Include="Assets/Scripts/Tiles/Tile.cs" />
     <Compile Include="Assets/Scripts/GridManager.cs" />
+    <Compile Include="Assets/Scripts/Tiles/SniperTower.cs" />
+    <Compile Include="Assets/Scripts/Tiles/BasicTower.cs" />
+    <Compile Include="Assets/Scripts/TowerManager.cs" />
     <Compile Include="Assets/Scripts/Enemy.cs" />
     <Compile Include="Assets/Scripts/Restart.cs" />
-    <Compile Include="Assets/Scripts/BulletScript.cs" />
+    <Compile Include="Assets/Scripts/Shoot/BulletScript.cs" />
+    <Compile Include="Assets/Scripts/Tiles/ElectricTower.cs" />
     <Compile Include="Assets/Scripts/EnemySpawner.cs" />
     <Compile Include="Assets/Scripts/Tiles/TowerTile.cs" />
-    <Compile Include="Assets/Scripts/TowerManager.cs" />
-    <Compile Include="Assets/Scripts/Tiles/BasicTower.cs" />
-    <Compile Include="Assets/Scripts/Tiles/SniperTower.cs" />
-    <Compile Include="Assets/Scripts/Tiles/BombTower.cs" />
-    <Compile Include="Assets/Scripts/Tiles/ElectricTower.cs" />
+    <Compile Include="Assets/Scripts/Shoot/ElectricShock.cs" />
+    <Compile Include="Assets/Scripts/Shoot/BombScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
