@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SniperTower : TowerTile
 {
-    [SerializeField] private Enemy _enemyPrefab;
-
 
     void Start()
     {

@@ -10,6 +10,9 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject _greenT;
     [SerializeField] private Component _towerTile;
     [SerializeField] private GameObject _sniperSkin;
+    [SerializeField] private GameObject _electricSkin;
+    [SerializeField] private GameObject _bombSkin;
+
 
 
     private MoneyManager _moneyManager;
@@ -33,10 +36,9 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
  
-            if (_greenT.activeSelf)
-            { }
-            else
+            if (!_greenT.activeSelf)
             {
+            
             if (_moneyManager.buyTower())
             {
                 TowerManager towerManager = _towerManager.GetComponent<TowerManager>();
@@ -44,12 +46,27 @@ public class Tile : MonoBehaviour
                 {
                     _sniperSkin.SetActive(true);
                     gameObject.GetComponent<SniperTower>().enabled = true;
+                    _renderer.enabled = false;
+                }
+                else if (towerManager.towerSelected.Equals("Electric"))
+                {
+                    _electricSkin.SetActive(true);
+                    gameObject.GetComponent<ElectricTower>().enabled = true;
+                    _renderer.enabled = false;
+                }
+                else if (towerManager.towerSelected.Equals("Bomb"))
+                {
+                    _bombSkin.SetActive(true);
+                    gameObject.GetComponent<BombTower>().enabled = true;
+                    _renderer.enabled = false;
                 }
                 else
                 {
                     _greenT.SetActive(true);
                     gameObject.GetComponent<TowerTile>().enabled = true;
                 }
+
+
             }
         }
     }

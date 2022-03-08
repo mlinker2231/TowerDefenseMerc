@@ -1,26 +1,25 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tiles/SniperTower.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy.cs">
     <Files>
       <File FileName="Assets/Scripts/Tiles/TowerTile.cs" Line="9" Column="25" IsPinned="True" />
-      <File FileName="Assets/Scripts/Tiles/PathTile.cs" IsPinned="True" />
-      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" Line="17" Column="9" />
+      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" Line="6" Column="2" IsPinned="True" />
+      <File FileName="Assets/Scripts/Shoot/BulletScript.cs" Line="103" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" Line="32" Column="6" />
       <File FileName="Assets/Scripts/Tiles/BombTower.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TowerManager.cs" Line="11" Column="6" />
-      <File FileName="Assets/Scripts/MoneyManager.cs" />
+      <File FileName="Assets/Scripts/TowerManager.cs" />
+      <File FileName="Assets/Scripts/MoneyManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Enemy.cs" Line="94" Column="6" />
       <File FileName="Assets/Scripts/EnemySpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GridManager.cs" />
-      <File FileName="Assets/Scripts/Tiles/Tile.cs" Line="45" Column="32" />
-      <File FileName="Assets/Scripts/LifeManager.cs" />
-      <File FileName="Assets/Scripts/Shoot/ElectricShock.cs" />
+      <File FileName="Assets/Scripts/GridManager.cs" Line="45" Column="25" />
+      <File FileName="Assets/Scripts/Tiles/Tile.cs" Line="10" Column="49" />
+      <File FileName="Assets/Scripts/LifeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shoot/ElectricShock.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Shoot/BombScript.cs" Line="6" Column="2" />
-      <File FileName="Assets/Scripts/Shoot/BulletScript.cs" Line="48" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d96981e7-e562-4c2a-9b7b-51728423063a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2114cc9f-29c4-4c39-a566-23885176fa24" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

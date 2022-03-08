@@ -87,10 +87,22 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator TakeSnipeDamage()
     {
+        health -= 5;
         _sniperDamage.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         _sniperDamage.SetActive(false);
-        health -= 5;
+    }
+     IEnumerator Zap()
+        {
+            _sniperDamage.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _sniperDamage.SetActive(false);
+            health -= 2;
+        }
+    public void TakeElectricDamage()
+    {
+        StartCoroutine("Zap");
+       
     }
 
 }
