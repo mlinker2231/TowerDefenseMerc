@@ -89,15 +89,15 @@ public class Enemy : MonoBehaviour
     {
         health -= 5;
         _sniperDamage.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         _sniperDamage.SetActive(false);
     }
      IEnumerator Zap()
         {
             _sniperDamage.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             _sniperDamage.SetActive(false);
-            health -= 2;
+            health -= 1;
         }
     public void TakeElectricDamage()
     {

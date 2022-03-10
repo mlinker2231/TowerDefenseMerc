@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemies());
-        InvokeRepeating("CheckForEnemies", 4, 3);
+        InvokeRepeating("CheckForEnemies", 8, 5);
     }
     private void Update()
     {

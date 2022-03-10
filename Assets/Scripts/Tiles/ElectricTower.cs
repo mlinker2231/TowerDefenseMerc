@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ElectricTower : TowerTile
 {
-
+    [SerializeField] GameObject electricAttack;
+    [SerializeField] GameObject _rangeIndicator;
     void Start()
     {
+        _rangeIndicator.transform.localScale = new Vector3(2, 2, 2);
         InvokeRepeating("Shoot", 0, 5);
     }
 
@@ -17,6 +19,8 @@ public class ElectricTower : TowerTile
 
     private void Shoot()
     {
+        
+        electricAttack.SetActive(true);
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
         if (enemyManager.enemyList.Count != 0)
              {
@@ -29,5 +33,6 @@ public class ElectricTower : TowerTile
                 }
             }
         }
+        electricAttack.SetActive(false);
     }
 }
