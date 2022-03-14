@@ -34,7 +34,7 @@ public class BombScript : MonoBehaviour
                         enemyManager.enemyList[x].StartCoroutine("TakeDamage");
                         print(x + "took damage x");
                         Move(enemyManager.enemyList[x]);
-                        for (int y = enemyManager.enemyList.Count - 1; y >= 0; y--)
+                        for (int y = enemyManager.enemyList.Count - 1; y > 0; y--)
                         {
                             if (Vector3.Distance(transform.position, enemyManager.enemyList[y].transform.position) <= 1.5)
                             {
@@ -62,5 +62,6 @@ public class BombScript : MonoBehaviour
     private void Move(Enemy enemy)
     {
         transform.position = enemy.transform.position;
+        print("moved" + enemy.transform.position);
     }
 }
