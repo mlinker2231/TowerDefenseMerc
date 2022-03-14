@@ -20,33 +20,41 @@ public class BombScript : MonoBehaviour
     {
 
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
+        //Checks if list empty
         if (enemyManager.enemyList.Count == 0)
             DestroyImmediate(gameObject);
         else
         {
+            //Iterates through a list of unkown size
             for (int x = 0; x < enemyManager.enemyList.Count; x--)
             {
-                
+                // if current enemy is there
                 if (enemyManager.enemyList[x] != null)
                 {
+                    // if the distance betweeen this object and enemy is less than or equal to 4
                     if (Vector3.Distance(transform.position, enemyManager.enemyList[x].transform.position) <= 4)
                     {
+
                         enemyManager.enemyList[x].StartCoroutine("TakeDamage");
                         print(x + "took damage x");
+                        //moves to where enemy is
                         Move(enemyManager.enemyList[x]);
-                        for (int y = enemyManager.enemyList.Count - 1; y > 0; y--)
+                        //iterates through list again
+                        foreach (Enemy enemy in enemyManager.enemyList)
                         {
-                            if (Vector3.Distance(transform.position, enemyManager.enemyList[y].transform.position) <= 1.5)
+                            // distance between this object and enemy position <= 1.5
+                            if (Vector3.Distance(transform.position, enemy.transform.position) <= 1.5)
                             {
-                                if (y != x)
+                                //if enemy already took damage, skip
+                                if (enemy != enemyManager.enemyList[x])
                                 {
-                                    enemyManager.enemyList[y].StartCoroutine("TakeDamage");
-                                    print(y + "Took damage y");
+                                    enemy.StartCoroutine("TakeDamage");
+                                    print("Took damage y");
                                 }
                             }
                         }
                         print("Would break");
-                        //break;
+                        break;
                     }
                     print("herere");
 
