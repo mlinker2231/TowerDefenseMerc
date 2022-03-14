@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ElectricTower : TowerTile
 {
+   
     [SerializeField] GameObject electricAttack;
     [SerializeField] GameObject _rangeIndicator;
     void Start()

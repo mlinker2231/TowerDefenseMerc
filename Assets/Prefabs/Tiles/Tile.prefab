@@ -1509,6 +1509,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 0}
   _rangeIndicator: {fileID: 6338009265201884614}
   enemyList: []
+  _bombPrefab: {fileID: 5457570813064095902, guid: 63462cb484afe4e95af32812d5793ceb, type: 3}
 --- !u!114 &-905406865492378665
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c04111f8135944f69e555a0670eb5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerSelected: {fileID: 0}
+  towerSelected: 
 --- !u!4 &1017512125
 Transform:
   m_ObjectHideFlags: 0

@@ -41,7 +41,6 @@ public class EnemySpawner : MonoBehaviour
     }
     private void CheckForEnemies()
     {
-        print(enemyList.Count);
      if (enemyList.Count == 0)
         {
             level += 1;

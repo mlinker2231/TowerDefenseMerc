@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BombTower : TowerTile
 {
-    // Start is called before the first frame update
+    [SerializeField] private BombScript _bombPrefab;
     void Start()
     {
-        
+        InvokeRepeating("Shoot", 0, 5);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Shoot()
     {
-        
+        var spawnedBullet = Instantiate(_bombPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1), Quaternion.identity);
+        spawnedBullet.name = $"Bomb";
     }
 }
