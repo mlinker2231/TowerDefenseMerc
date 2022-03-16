@@ -6,7 +6,6 @@ public class ElectricTower : TowerTile
 {
    
     [SerializeField] GameObject electricAttack;
-    [SerializeField] GameObject _rangeIndicator;
     void Start()
     {
         _rangeIndicator.transform.localScale = new Vector3(2, 2, 2);

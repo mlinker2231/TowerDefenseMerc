@@ -39,35 +39,36 @@ public class Tile : MonoBehaviour
             if (!_greenT.activeSelf)
             {
             
-            if (_moneyManager.buyTower())
-            {
+            
                 TowerManager towerManager = _towerManager.GetComponent<TowerManager>();
-                if (towerManager.towerSelected.Equals("Sniper"))
+                if (towerManager.towerSelected.Equals("Sniper") && _moneyManager.buyTower("Sniper"))
                 {
+                
                     _sniperSkin.SetActive(true);
                     gameObject.GetComponent<SniperTower>().enabled = true;
                     _renderer.enabled = false;
+                
                 }
-                else if (towerManager.towerSelected.Equals("Electric"))
+                else if (towerManager.towerSelected.Equals("Electric") && _moneyManager.buyTower("Electric"))
                 {
                     _electricSkin.SetActive(true);
                     gameObject.GetComponent<ElectricTower>().enabled = true;
                     _renderer.enabled = false;
                 }
-                else if (towerManager.towerSelected.Equals("Bomb"))
+                else if (towerManager.towerSelected.Equals("Bomb") && _moneyManager.buyTower("Bomb"))
                 {
                     _bombSkin.SetActive(true);
                     gameObject.GetComponent<BombTower>().enabled = true;
                     _renderer.enabled = false;
                 }
-                else
+            else if (towerManager.towerSelected.Equals("Basic") && _moneyManager.buyTower("basic"))
                 {
                     _greenT.SetActive(true);
                     gameObject.GetComponent<TowerTile>().enabled = true;
                 }
 
 
-            }
+            
         }
     }
 

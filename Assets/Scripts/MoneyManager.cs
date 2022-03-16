@@ -7,9 +7,12 @@ public class MoneyManager : MonoBehaviour
 {
     [SerializeField] int money;
     [SerializeField] TMP_Text moneyText;
+
+    private EnemySpawner enemySpawner;
     void Start()
     {
         moneyText.text = "$" + money;
+        enemySpawner = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
     }
 
     void Update()
@@ -17,22 +20,64 @@ public class MoneyManager : MonoBehaviour
         
     }
 
-    public bool buyTower()
+    public bool buyTower(string tower)
     {
-        if (money >= 50)
+
+        if (tower.Equals("Electric"))
         {
-            money -= 50;
-            moneyText.text = "$" + money;
-            return true;
+            if (money >= 200)
+            {
+                money -= 200;
+                moneyText.text = "$" + money;
+                return true;
+            }
+            else
+                return false;
         }
-        else
-            return false;
+        else if (tower.Equals("Bomb"))
+        {
+            if (money >= 200)
+            {
+                money -= 200;
+                moneyText.text = "$" + money;
+                return true;
+            }
+            else
+                return false;
+        }
+        else if (tower.Equals("Sniper"))
+        {
+            if (money >= 50)
+            {
+                money -= 50;
+                moneyText.text = "$" + money;
+                return true;
+            }
+            else
+                return false;
+        }
+        else if(tower.Equals("basic"))
+        {
+
+            if (money >= 200)
+            {
+                money -= 50;
+                moneyText.text = "$" + money;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        return false;
+
     }
     public void killedEnemy()
     {
-        money += 10;
+        money += 5;
+        money += (5 / ((enemySpawner.level / 5) + 1));
         moneyText.text = "$" + money;
-
+        
 
     }
 

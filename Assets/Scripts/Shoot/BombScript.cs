@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-
+    private bool moved = false;
     void Start()
     {
         Fire();
-        StartCoroutine(Move(transform));
+        
+        if (moved == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
@@ -37,7 +41,6 @@ public class BombScript : MonoBehaviour
                     {
 
                         enemyManager.enemyList[x].StartCoroutine("TakeBombDamage");
-                        print(x + "took damage x");
                         //moves to where enemy is
                         StartCoroutine(Move(enemyManager.enemyList[x].transform));
                         //iterates through list again
@@ -62,6 +65,7 @@ public class BombScript : MonoBehaviour
     }
     IEnumerator Move(Transform enemy)
     {
+        moved = true;
         transform.position = enemy.transform.position;
         yield return new WaitForSeconds(.25f);
         Destroy(gameObject);

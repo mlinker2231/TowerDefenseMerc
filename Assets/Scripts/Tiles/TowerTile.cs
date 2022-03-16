@@ -7,7 +7,7 @@ public class TowerTile : MonoBehaviour
 {
 
     [SerializeField] private BulletScript _bulletPrefab;
-    [SerializeField] private GameObject _rangeIndicator;
+    [SerializeField] public GameObject _rangeIndicator;
 
 
     public List<BulletScript> enemyList = new List<BulletScript>();
@@ -15,7 +15,7 @@ public class TowerTile : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Shoot", 1, 1);
-        _rangeIndicator.transform.localScale = new Vector3(8, 8, 8);
+        _rangeIndicator.transform.localScale = new Vector3(7, 7, 7);
     }
 
     void Update()
