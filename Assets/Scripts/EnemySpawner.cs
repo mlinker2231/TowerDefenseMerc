@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     public List<Enemy> enemyList = new List<Enemy>();
-    private int level = 1;
+    public int level = 1;
     void Start()
     {
         StartCoroutine(SpawnEnemies());
@@ -28,7 +28,8 @@ public class EnemySpawner : MonoBehaviour
         _numberOfEnemies += level;
         for (int x = 0; x <= _numberOfEnemies; x++)
         {
-            yield return new WaitForSeconds(1.5f - ((float)level / 7));
+            double secondsWaited = ((1/(3* Mathf.Pow(level,5))) * (3 * Mathf.Pow(level,4)) + .2);
+            yield return new WaitForSeconds(((float)secondsWaited));
             var spawnedEnemy = Instantiate(_enemyPrefab, new Vector3(0, _height, -1), Quaternion.identity);
             spawnedEnemy.name = $"Enemy {x}";
             spawnedEnemy.transform.Translate(new Vector3(0, 0));

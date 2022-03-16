@@ -22,8 +22,8 @@ public class BulletScript : MonoBehaviour
     {
 
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
-        if (enemyManager.enemyList.Count == 0)
-            DestroyImmediate(gameObject);
+        if (enemyManager.enemyList.Count <= 0)
+            Destroy(gameObject);
 
         Enemy[] enemies = new Enemy[enemyManager.enemyList.Count];
         
@@ -42,6 +42,8 @@ public class BulletScript : MonoBehaviour
 
         }
         var closestEnemy = GetClosestEnemy(enemies);
+        if (closestEnemy == null)
+            DestroyImmediate(gameObject);
         if (Vector3.Distance(closestEnemy.transform.position, transform.position) < 4)
         {
             StartCoroutine(Move(closestEnemy));
@@ -94,6 +96,8 @@ public class BulletScript : MonoBehaviour
 
     private Enemy GetClosestEnemy(Enemy[] enemies)
     {
+        if (enemies.Length <= 0)
+            return null;
         Enemy enemy = enemies[0];
         Transform tMin = null;
         float minDist = Mathf.Infinity;

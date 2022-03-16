@@ -8,6 +8,8 @@ public class BombTower : TowerTile
     void Start()
     {
         InvokeRepeating("Shoot", 0, 5);
+        _rangeIndicator.transform.localScale = new Vector3(6, 6, 6);
+
     }
 
     private void Shoot()

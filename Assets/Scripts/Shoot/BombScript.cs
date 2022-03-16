@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-
+    private bool moved = false;
     void Start()
     {
         Fire();
-
+        
+        if (moved == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
@@ -21,12 +25,13 @@ public class BombScript : MonoBehaviour
 
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
         //Checks if list empty
-        if (enemyManager.enemyList.Count == 0)
+        if (enemyManager.enemyList.Count <= 0)
             DestroyImmediate(gameObject);
         else
         {
+            Move(transform);
             //Iterates through a list of unkown size
-            for (int x = 0; x < enemyManager.enemyList.Count; x--)
+            for (int x = 0; x < enemyManager.enemyList.Count; x++)
             {
                 // if current enemy is there
                 if (enemyManager.enemyList[x] != null)
@@ -35,10 +40,9 @@ public class BombScript : MonoBehaviour
                     if (Vector3.Distance(transform.position, enemyManager.enemyList[x].transform.position) <= 4)
                     {
 
-                        enemyManager.enemyList[x].StartCoroutine("TakeDamage");
-                        print(x + "took damage x");
+                        enemyManager.enemyList[x].StartCoroutine("TakeBombDamage");
                         //moves to where enemy is
-                        Move(enemyManager.enemyList[x]);
+                        StartCoroutine(Move(enemyManager.enemyList[x].transform));
                         //iterates through list again
                         foreach (Enemy enemy in enemyManager.enemyList)
                         {
@@ -48,28 +52,22 @@ public class BombScript : MonoBehaviour
                                 //if enemy already took damage, skip
                                 if (enemy != enemyManager.enemyList[x])
                                 {
-                                    enemy.StartCoroutine("TakeDamage");
-                                    print("Took damage y");
+                                    enemy.StartCoroutine("TakeBombDamage");
                                 }
                             }
                         }
-                        print("Would break");
                         break;
                     }
-                    print("herere");
-
                 }
-                else
-                {
-                    
-                }
+               
             }
         }
-        print("idk whats gonim");
     }
-    private void Move(Enemy enemy)
+    IEnumerator Move(Transform enemy)
     {
+        moved = true;
         transform.position = enemy.transform.position;
-        print("moved" + enemy.transform.position);
+        yield return new WaitForSeconds(.25f);
+        Destroy(gameObject);
     }
 }

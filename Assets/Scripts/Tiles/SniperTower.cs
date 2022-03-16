@@ -8,6 +8,7 @@ public class SniperTower : TowerTile
     void Start()
     {
         InvokeRepeating("Shoot", 0, 5);
+        _rangeIndicator.transform.localScale = new Vector3(50, 50, 50);
     }
 
     void Update()
