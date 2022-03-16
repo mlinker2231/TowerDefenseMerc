@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int health;
     [SerializeField] private GameObject _damage;
     [SerializeField] private GameObject _sniperDamage;
+    [SerializeField] private GameObject _electricDamage;
+    [SerializeField] private GameObject _bombDamage;
     [SerializeField] public float _speed;
 
     private EnemySpawner _enemyManager;
@@ -92,16 +94,24 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         _sniperDamage.SetActive(false);
     }
-     IEnumerator Zap()
+    IEnumerator TakeBombDamage()
+    {
+        health -= 2;
+        _bombDamage.SetActive(true);
+        yield return new WaitForSeconds(.75f);
+        _bombDamage.SetActive(false);
+    }
+
+    IEnumerator Zap()
         {
-            _sniperDamage.SetActive(true);
+            _electricDamage.SetActive(true);
             yield return new WaitForSeconds(0.25f);
-            _sniperDamage.SetActive(false);
+            _electricDamage.SetActive(false);
             health -= 1;
         }
     public void TakeElectricDamage()
     {
-        StartCoroutine("Zap");
+        StartCoroutine(Zap());
        
     }
 
