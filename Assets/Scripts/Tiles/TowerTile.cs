@@ -14,7 +14,7 @@ public class TowerTile : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Shoot", 1, 1);
+        InvokeRepeating("Shoot", 1, .5f);
         _rangeIndicator.transform.localScale = new Vector3(7, 7, 7);
     }
 

@@ -24,9 +24,14 @@ public class SniperTower : TowerTile
             
         }else
         {
-            int count = enemyManager.enemyList.Count;
-            Enemy currentEnemy = enemyManager.enemyList[0];
-            currentEnemy.StartCoroutine("TakeSnipeDamage");
+            foreach (Enemy enemy in enemyManager.enemyList)
+            {
+                if (!enemy.takingSnipeDamage)
+                {
+                    enemy.StartCoroutine("TakeSnipeDamage");
+                    break;
+                }
+            }
         }
     }
 }

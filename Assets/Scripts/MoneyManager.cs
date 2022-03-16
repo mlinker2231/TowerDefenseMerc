@@ -47,9 +47,9 @@ public class MoneyManager : MonoBehaviour
         }
         else if (tower.Equals("Sniper"))
         {
-            if (money >= 50)
+            if (money >= 100)
             {
-                money -= 50;
+                money -= 100;
                 moneyText.text = "$" + money;
                 return true;
             }
@@ -59,7 +59,7 @@ public class MoneyManager : MonoBehaviour
         else if(tower.Equals("basic"))
         {
 
-            if (money >= 200)
+            if (money >= 50)
             {
                 money -= 50;
                 moneyText.text = "$" + money;
@@ -75,7 +75,8 @@ public class MoneyManager : MonoBehaviour
     public void killedEnemy()
     {
         money += 5;
-        money += (5 / ((enemySpawner.level / 5) + 1));
+        if (enemySpawner.level <= 29)
+        money += (5 - (enemySpawner.level / 5));
         moneyText.text = "$" + money;
         
 
