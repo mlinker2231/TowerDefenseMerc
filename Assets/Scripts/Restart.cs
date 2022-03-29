@@ -9,7 +9,7 @@ public class Restart : MonoBehaviour
     
     public void restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
 }

@@ -1539,12 +1539,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169124b9013f742b087d1f22b46c0fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
   _damage: {fileID: 6180168864315457375}
   _sniperDamage: {fileID: 1826513058987653613}
   _electricDamage: {fileID: 6882170986500419941}
   _bombDamage: {fileID: 7003164968309299612}
   _speed: 0.75
+  takingSnipeDamage: 0
 --- !u!58 &7193328588398130463
 CircleCollider2D:
   m_ObjectHideFlags: 0

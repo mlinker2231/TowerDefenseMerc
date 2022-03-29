@@ -9,7 +9,7 @@ public class ElectricTower : TowerTile
     void Start()
     {
         _rangeIndicator.transform.localScale = new Vector3(2, 2, 2);
-        InvokeRepeating("Shoot", 0, 5);
+        InvokeRepeating("Shoot", 0, 3.5f);
     }
 
     void Update()

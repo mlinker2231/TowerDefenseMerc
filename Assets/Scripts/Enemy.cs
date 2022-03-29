@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Zap()
         {
             _electricDamage.SetActive(true);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.17f);
             _electricDamage.SetActive(false);
             health -= 1;
         }

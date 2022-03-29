@@ -7,8 +7,8 @@ public class BombTower : TowerTile
     [SerializeField] private BombScript _bombPrefab;
     void Start()
     {
-        InvokeRepeating("Shoot", 0, 5);
-        _rangeIndicator.transform.localScale = new Vector3(6, 6, 6);
+        InvokeRepeating("Shoot", 0, 1.7f);
+        _rangeIndicator.transform.localScale = new Vector3(4.5f, 4.5f, 6);
 
     }
 

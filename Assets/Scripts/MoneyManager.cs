@@ -25,9 +25,9 @@ public class MoneyManager : MonoBehaviour
 
         if (tower.Equals("Electric"))
         {
-            if (money >= 200)
+            if (money >= 150)
             {
-                money -= 200;
+                money -= 150;
                 moneyText.text = "$" + money;
                 return true;
             }

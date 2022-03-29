@@ -44,7 +44,7 @@ public class BulletScript : MonoBehaviour
         var closestEnemy = GetClosestEnemy(enemies);
         if (closestEnemy == null)
             DestroyImmediate(gameObject);
-        if (Vector3.Distance(closestEnemy.transform.position, transform.position) < 4)
+        else if (Vector3.Distance(closestEnemy.transform.position, transform.position) < 4)
         {
             StartCoroutine(Move(closestEnemy));
             closestEnemy.StartCoroutine("TakeDamage");
