@@ -36,7 +36,7 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
  
-            if (!_greenT.activeSelf)
+            if (!(_greenT.activeSelf || _bombSkin.activeSelf || _electricSkin.activeSelf || _sniperSkin.activeSelf))
             {
             
             

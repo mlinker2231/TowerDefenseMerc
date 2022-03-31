@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemies());
-        InvokeRepeating("CheckForEnemies", 8, 3);
+        InvokeRepeating("CheckForEnemies", 8, 1);
     }
     private void Update()
     {
@@ -30,13 +30,13 @@ public class EnemySpawner : MonoBehaviour
         _numberOfEnemies += level;
         for (int x = 0; x <= _numberOfEnemies; x++)
         {
-            double secondsWaited = ((1/(2* Mathf.Pow(level + 1,5))) * (7 * Mathf.Pow(level + 1,4)));
+            double secondsWaited = ((1/(2* Mathf.Pow(level + 1,5))) * (7 * Mathf.Pow(level + 1,3.8f)));
             yield return new WaitForSeconds(((float)secondsWaited));
             var spawnedEnemy = Instantiate(_enemyPrefab, new Vector3(0, _height, -1), Quaternion.identity);
             spawnedEnemy.name = $"Enemy {x}";
             spawnedEnemy.transform.Translate(new Vector3(0, 0));
             spawnedEnemy.health += level / 2;
-            spawnedEnemy._speed += (float)level / 5;
+            spawnedEnemy._speed += (float)level / 5;                      
             enemyList.Add(spawnedEnemy);
 
         }
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void CheckForEnemies()
     {
-     if (!spawningEnemies)
+        if (!spawningEnemies && enemyList.Count == 0)
         {
             level += 1;
             StartCoroutine(SpawnEnemies());
