@@ -1,25 +1,25 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemySpawner.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" IsPinned="True" />
+      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" Line="1" Column="1" IsPinned="True" />
       <File FileName="Assets/Scripts/Shoot/BulletScript.cs" IsPinned="True" />
-      <File FileName="Assets/Scripts/Tiles/BombTower.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" IsPinned="True" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="35" Column="38" />
+      <File FileName="Assets/Scripts/Tiles/BombTower.cs" />
       <File FileName="Assets/Scripts/Tiles/TowerTile.cs" />
-      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" />
       <File FileName="Assets/Scripts/TowerManager.cs" />
       <File FileName="Assets/Scripts/MoneyManager.cs" />
-      <File FileName="Assets/Scripts/Enemy.cs" />
-      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="37" Column="65" />
       <File FileName="Assets/Scripts/GridManager.cs" />
       <File FileName="Assets/Scripts/Tiles/Tile.cs" />
       <File FileName="Assets/Scripts/LifeManager.cs" />
-      <File FileName="Assets/Scripts/Shoot/BombScript.cs" Line="11" Column="16" />
+      <File FileName="Assets/Scripts/Shoot/BombScript.cs" />
       <File FileName="Assets/Scripts/Restart.cs" />
+      <File FileName="Assets/Scripts/Enemies/BossEnemy.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f7c25824-cbb8-4898-b1f0-656b1688c2d2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6fb75ba7-9f74-45da-948d-ffc1843ea4d6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
