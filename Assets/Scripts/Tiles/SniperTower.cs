@@ -11,19 +11,12 @@ public class SniperTower : TowerTile
         _rangeIndicator.transform.localScale = new Vector3(50, 50, 50);
     }
 
-    void Update()
-    {
-        
-    }
 
     private void Shoot()
     {
         EnemySpawner enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
-        if (enemyManager.enemyList.Count == 0)
-        {
-            
-        }else
-        {
+        if (enemyManager.enemyList.Count == 0) return;
+       
             foreach (Enemy enemy in enemyManager.enemyList)
             {
                 if (!enemy.takingSnipeDamage)
@@ -33,5 +26,5 @@ public class SniperTower : TowerTile
                 }
             }
         }
-    }
+    
 }

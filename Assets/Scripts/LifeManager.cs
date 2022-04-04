@@ -14,10 +14,6 @@ public class LifeManager : MonoBehaviour
         livesText.text = "Lives: " + _lives;   
     }
 
-    void Update()
-    {
-        
-    }
     public void loseLife()
     {
 

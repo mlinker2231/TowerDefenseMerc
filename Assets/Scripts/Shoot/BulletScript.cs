@@ -13,11 +13,6 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
-
     private void fire()
     {
 

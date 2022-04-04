@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-    private bool moved = false;
     private EnemySpawner enemyManager;
     void Start()
     {
         Fire();
-        if (moved == false)
-        {
-            if (gameObject != null)
-            Destroy(gameObject);
-        }
         
     }
 
-    void Update()
-    {
 
-    }
 
     private void Fire()
     {
@@ -64,7 +55,6 @@ public class BombScript : MonoBehaviour
     }
     IEnumerator Move(Enemy enemy)
     {
-        moved = true;
         for (int x = 0; x < 70; x++)
         {
             if (enemy == null) {

@@ -5,17 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public int health;
-    [SerializeField] private GameObject _damage;
-    [SerializeField] private GameObject _sniperDamage;
-    [SerializeField] private GameObject _electricDamage;
-    [SerializeField] private GameObject _bombDamage;
+    [SerializeField] protected GameObject _damage;
+    [SerializeField] protected GameObject _sniperDamage;
+    [SerializeField] protected GameObject _electricDamage;
+    [SerializeField] protected GameObject _bombDamage;
     [SerializeField] public float _speed;
 
     public bool takingSnipeDamage = false;
 
-    private EnemySpawner _enemyManager;
-    private MoneyManager _moneyManager;
-    private LifeManager lifeManager;
+    protected EnemySpawner _enemyManager;
+    protected MoneyManager _moneyManager;
+    protected LifeManager lifeManager;
 
 
     void Start()
@@ -23,8 +23,6 @@ public class Enemy : MonoBehaviour
               _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
               lifeManager = GameObject.Find("EnemyManager").GetComponent<LifeManager>();
                _enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
-
-
     }
 
     void Update()

@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private int _height, _numberOfEnemies;
     [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private BossEnemy _bossEnemyPrefab;
+
 
 
     public List<Enemy> enemyList = new List<Enemy>();
@@ -16,24 +18,30 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemies());
         InvokeRepeating("CheckForEnemies", 8, 1);
     }
-    private void Update()
-    {
-        
-   
-    }
-
     
 
     IEnumerator SpawnEnemies()
     {
-
         spawningEnemies = true;
-        _numberOfEnemies += level;
-        for (int x = 0; x <= _numberOfEnemies; x++)
+        if (level % 5 != 0)
         {
-           double secondsWaited = ((1 / (2 * Mathf.Pow(level + 1, 5))) * (7 * Mathf.Pow(level + 1, 3.8f)));
-            yield return new WaitForSeconds(((float)secondsWaited));
-            SpawnNormalEnemy(x);
+            _numberOfEnemies += level;
+            for (int x = 0; x <= _numberOfEnemies; x++)
+            {
+                double secondsWaited = ((1 / (2 * Mathf.Pow(level + 1, 5))) * (7 * Mathf.Pow(level + 1, 3.8f)));
+                yield return new WaitForSeconds(((float)secondsWaited));
+                SpawnNormalEnemy(x);
+            }
+        }
+        if (level % 5 == 0)
+        {
+            for (int x = 0; x <= level / 5; x++)
+            {
+            
+                double secondsWaited = 3;
+                yield return new WaitForSeconds(((float)secondsWaited));
+                SpawnBossEnemy(x);
+            }
         }
         spawningEnemies = false;
         
@@ -49,7 +57,18 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(spawnedEnemy);
     }
 
-    private void CheckForEnemies()
+
+    private void SpawnBossEnemy(int x)
+    {
+        var spawnedEnemy = Instantiate(_bossEnemyPrefab, new Vector3(0, _height, -1), Quaternion.identity);
+        spawnedEnemy.name = $"BossEnemy {x}";
+        spawnedEnemy.transform.Translate(new Vector3(0, 0));
+        spawnedEnemy.health += (level / 5) * 50;
+        spawnedEnemy._speed = (float)level / 15f;
+        enemyList.Add(spawnedEnemy);
+    }
+
+private void CheckForEnemies()
     {
         if (!spawningEnemies && enemyList.Count == 0)
         {

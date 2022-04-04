@@ -12,10 +12,7 @@ public class TowerManager : MonoBehaviour
         towerSelected = "Basic";
     }
 
-    void Update()
-    {
-        
-    }
+  
 
     public void SelectBasic()
     {

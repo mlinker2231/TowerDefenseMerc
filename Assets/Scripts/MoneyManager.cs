@@ -15,10 +15,7 @@ public class MoneyManager : MonoBehaviour
         enemySpawner = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
     }
 
-    void Update()
-    {
-        
-    }
+  
 
     public bool buyTower(string tower)
     {

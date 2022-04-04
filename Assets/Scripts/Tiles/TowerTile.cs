@@ -18,9 +18,7 @@ public class TowerTile : MonoBehaviour
         _rangeIndicator.transform.localScale = new Vector3(7, 7, 7);
     }
 
-    void Update()
-    {
-    }
+ 
 
      private void Shoot()
     {

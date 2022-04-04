@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemyt : MonoBehaviour
+public class BossEnemy : Enemy
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+        lifeManager = GameObject.Find("EnemyManager").GetComponent<LifeManager>();
+        _enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemySpawner>();
+    }
+  
+
+
+    IEnumerator TakeSnipeDamage()
+    {
+        print(health + "b");
+        takingSnipeDamage = true;
+        _sniperDamage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _sniperDamage.SetActive(false);
+        health = health / 2;
+        health -= 2;
+        print(health + "a");
+        takingSnipeDamage = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

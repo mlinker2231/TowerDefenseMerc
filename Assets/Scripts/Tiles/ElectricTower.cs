@@ -12,10 +12,6 @@ public class ElectricTower : TowerTile
         InvokeRepeating("Shoot", 0, 3.5f);
     }
 
-    void Update()
-    {
-
-    }
 
     private void Shoot()
     {
