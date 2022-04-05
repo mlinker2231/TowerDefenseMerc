@@ -46,7 +46,7 @@ public class Tile : MonoBehaviour
                 
                     _sniperSkin.SetActive(true);
                     gameObject.GetComponent<SniperTower>().enabled = true;
-                    _renderer.enabled = false;
+                    
                 
                 }
                 else if (towerManager.towerSelected.Equals("Electric") && _moneyManager.buyTower("Electric"))

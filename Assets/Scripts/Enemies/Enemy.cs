@@ -36,8 +36,7 @@ public class Enemy : MonoBehaviour
         {
             _enemyManager.enemyList.Remove(this);
             lifeManager.loseLife();
-            Destroy(gameObject);
-            
+            Destroy(gameObject); 
         }
         if (health <= 0)
         {
@@ -47,7 +46,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void move()
+    protected void move()
     {
         float speed = _speed * Time.deltaTime;
         

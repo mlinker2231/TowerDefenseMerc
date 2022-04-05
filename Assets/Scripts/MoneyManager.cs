@@ -75,7 +75,12 @@ public class MoneyManager : MonoBehaviour
         if (enemySpawner.level <= 29)
         money += (5 - (enemySpawner.level / 5));
         moneyText.text = "$" + money;
-        
+
+    }
+    public void killedBossEnemy()
+    {
+        money +=  100;
+        moneyText.text = "$" + money;
 
     }
 
