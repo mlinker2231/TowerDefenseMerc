@@ -9,6 +9,8 @@ public class TowerTile : MonoBehaviour
     [SerializeField] private BulletScript _bulletPrefab;
     [SerializeField] public GameObject _rangeIndicator;
 
+    protected MoneyManager _moneyManager;
+
 
     public List<BulletScript> enemyList = new List<BulletScript>();
 
@@ -22,7 +24,6 @@ public class TowerTile : MonoBehaviour
 
      private void Shoot()
     {
-
         var spawnedBullet = Instantiate(_bulletPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1), Quaternion.identity);
         spawnedBullet.name = $"Bullet";
     }
@@ -34,5 +35,9 @@ public class TowerTile : MonoBehaviour
     private void OnMouseExit()
     {
         _rangeIndicator.SetActive(false);
+    }
+    protected void upgrade()
+    {
+        if ( )
     }
 }

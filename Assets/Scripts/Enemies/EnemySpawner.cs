@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private int _height, _numberOfEnemies;
+    [SerializeField] private TMP_Text _levelText;
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private BossEnemy _bossEnemyPrefab;
 
@@ -73,6 +76,7 @@ private void CheckForEnemies()
         if (!spawningEnemies && enemyList.Count == 0)
         {
             level += 1;
+            _levelText.text = "Level: " + level;
             StartCoroutine(SpawnEnemies());
         }
 

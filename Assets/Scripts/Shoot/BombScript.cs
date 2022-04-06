@@ -36,7 +36,10 @@ public class BombScript : MonoBehaviour
                         StartCoroutine(Move(enemyManager.enemyList[x]));
                         break;
                     }
-                }
+                    if (enemyManager.enemyList.Count - 1 == x)
+                        Destroy(gameObject);
+                }  
+             
                
             }
         }
