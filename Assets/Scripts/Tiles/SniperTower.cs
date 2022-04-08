@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SniperTower : TowerTile
 {
+    static public int cost = 100;
 
     void Start()
     {
-        InvokeRepeating("Shoot", 0, 5);
+        attackSpeed = 5;
+        InvokeRepeating("Shoot", 0, attackSpeed);
         _rangeIndicator.transform.localScale = new Vector3(50, 50, 50);
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U) && selected)
+            upgrade();
+    }
 
     private void Shoot()
     {
@@ -26,5 +32,14 @@ public class SniperTower : TowerTile
                 }
             }
         }
-    
+    protected void upgrade()
+    {
+        _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+        if (_moneyManager.makePurchase(2 * cost))
+        {
+            attackSpeed *= .8f;
+            CancelInvoke();
+            InvokeRepeating("Shoot", 0, attackSpeed);
+        }
+    }
 }

@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour
             
             
                 TowerManager towerManager = _towerManager.GetComponent<TowerManager>();
-                if (towerManager.towerSelected.Equals("Sniper") && _moneyManager.buyTower("Sniper"))
+            if (towerManager.towerSelected.Equals("Sniper") && _moneyManager.makePurchase(SniperTower.cost))
                 {
                 
                     _sniperSkin.SetActive(true);
@@ -49,19 +49,19 @@ public class Tile : MonoBehaviour
                     
                 
                 }
-                else if (towerManager.towerSelected.Equals("Electric") && _moneyManager.buyTower("Electric"))
+                else if (towerManager.towerSelected.Equals("Electric") && _moneyManager.makePurchase(ElectricTower.cost))
                 {
                     _electricSkin.SetActive(true);
                     gameObject.GetComponent<ElectricTower>().enabled = true;
                     _renderer.enabled = false;
                 }
-                else if (towerManager.towerSelected.Equals("Bomb") && _moneyManager.buyTower("Bomb"))
+                else if (towerManager.towerSelected.Equals("Bomb") && _moneyManager.makePurchase(BombTower.cost))
                 {
                     _bombSkin.SetActive(true);
                     gameObject.GetComponent<BombTower>().enabled = true;
                     _renderer.enabled = false;
                 }
-            else if (towerManager.towerSelected.Equals("Basic") && _moneyManager.buyTower("basic"))
+            else if (towerManager.towerSelected.Equals("Basic") && _moneyManager.makePurchase(TowerTile.cost))
                 {
                     _greenT.SetActive(true);
                     gameObject.GetComponent<TowerTile>().enabled = true;

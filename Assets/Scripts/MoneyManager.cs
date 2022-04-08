@@ -17,71 +17,32 @@ public class MoneyManager : MonoBehaviour
 
   
 
-    public bool buyTower(string tower)
+    public bool makePurchase(int cost)
     {
 
-        if (tower.Equals("Electric"))
-        {
-            if (money >= 150)
+        
+            if (money >= cost)
             {
-                money -= 150;
+                money -= cost;
                 moneyText.text = "$" + money;
                 return true;
             }
-            else
+            
                 return false;
-        }
-        else if (tower.Equals("Bomb"))
-        {
-            if (money >= 200)
-            {
-                money -= 200;
-                moneyText.text = "$" + money;
-                return true;
-            }
-            else
-                return false;
-        }
-        else if (tower.Equals("Sniper"))
-        {
-            if (money >= 100)
-            {
-                money -= 100;
-                moneyText.text = "$" + money;
-                return true;
-            }
-            else
-                return false;
-        }
-        else if(tower.Equals("basic"))
-        {
-
-            if (money >= 50)
-            {
-                money -= 50;
-                moneyText.text = "$" + money;
-                return true;
-            }
-            else
-                return false;
-        }
-
-        return false;
-
     }
+
     public void killedEnemy()
     {
         money += 5;
-        if (enemySpawner.level <= 29)
-        money += (5 - (enemySpawner.level / 5));
+        money += 5 - (enemySpawner.level / 5);
         moneyText.text = "$" + money;
 
     }
     public void killedBossEnemy()
     {
-        money +=  100;
+        money += 100;
+        money += (10 * enemySpawner.level) - 50;
         moneyText.text = "$" + money;
 
     }
-
 }
