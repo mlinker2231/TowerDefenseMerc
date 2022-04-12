@@ -49,11 +49,15 @@ public class ElectricTower : TowerTile
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (_moneyManager.makePurchase(2 * cost))
+        if (tier < 7)
         {
-            attackSpeed *= .8f;
-            CancelInvoke();
-            InvokeRepeating("Shoot", 0, attackSpeed);
+            if (_moneyManager.makePurchase(2 *cost))
+            {
+                tier++;
+                attackSpeed *= .8f;
+                CancelInvoke();
+                InvokeRepeating("Shoot", 0, attackSpeed);
+            }
         }
     }
 }

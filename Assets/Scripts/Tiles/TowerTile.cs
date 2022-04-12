@@ -9,10 +9,14 @@ public class TowerTile : MonoBehaviour
     [SerializeField] private BulletScript _bulletPrefab;
     [SerializeField] public GameObject _rangeIndicator;
 
+    private int ascendedLevel = 0;
+
     protected MoneyManager _moneyManager;
     protected float attackSpeed;
-    static public int cost = 50;
     protected bool selected = false;
+    protected int tier = 0;
+
+    static public int cost = 50;
 
     public List<BulletScript> enemyList = new List<BulletScript>();
 
@@ -50,11 +54,17 @@ public class TowerTile : MonoBehaviour
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (_moneyManager.makePurchase(2 * cost))
+        if (tier < 20)
         {
-            attackSpeed *= .8f;
-            CancelInvoke();
-            InvokeRepeating("Shoot", 0, attackSpeed);
+            if (_moneyManager.makePurchase(2 * cost))
+            {
+                print(tier);
+                tier++;
+                attackSpeed *= .8f;
+                CancelInvoke();
+                InvokeRepeating("Shoot", 0, attackSpeed);
+            }
         }
+        
     }
 }
