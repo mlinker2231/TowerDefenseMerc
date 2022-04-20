@@ -73,6 +73,8 @@
     <Compile Include="Assets/Scripts/Tiles/ElectricTower.cs" />
     <Compile Include="Assets/Scripts/Enemies/EnemySpawner.cs" />
     <Compile Include="Assets/Scripts/Tiles/TowerTile.cs" />
+    <Compile Include="Assets/Scripts/SaveeLoad/PlayerData.cs" />
+    <Compile Include="Assets/Scripts/SaveeLoad/SaveData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
