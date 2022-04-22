@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea27988170aa741a79b679ef0d0cd875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lives: 10
+  _lives: 25
   livesText: {fileID: 1832062831}
   highScoreText: {fileID: 2029228419}
 --- !u!1 &361016665
@@ -1114,8 +1114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca246efc1a2b34838b15a16d6bf14332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 2029228419}
-  highScoreLevel: 0
 --- !u!1 &1017512123
 GameObject:
   m_ObjectHideFlags: 0
