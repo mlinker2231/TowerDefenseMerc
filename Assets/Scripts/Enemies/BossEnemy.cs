@@ -32,18 +32,4 @@ public class BossEnemy : Enemy
             Destroy(gameObject);
         }
     }
-
-    IEnumerator TakeSnipeDamage()
-    {
-        print(health + "b");
-        takingSnipeDamage = true;
-        _sniperDamage.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        _sniperDamage.SetActive(false);
-        health = (int)(health * .80f);
-        health -= 2;
-        print(health + "a");
-        takingSnipeDamage = false;
-    }
-
 }

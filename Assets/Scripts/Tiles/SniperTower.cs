@@ -6,6 +6,7 @@ public class SniperTower : TowerTile
 {
     static public int cost = 100;
 
+    private float damage = .8f;
     private int totalAttackCount = 1;
 
     void Start()
@@ -30,7 +31,10 @@ public class SniperTower : TowerTile
             {
                 if (!enemy.takingSnipeDamage)
                 {
-                    enemy.StartCoroutine("TakeSnipeDamage");
+                    if (enemy is BossEnemy)
+                        enemy.StartCoroutine(enemy.TakeSnipeDamage(damage));
+                    else
+                        enemy.StartCoroutine(enemy.TakeSnipeDamage());
                     break;
                 }
             }
@@ -45,7 +49,7 @@ public class SniperTower : TowerTile
             {
                 tier++;
                 attackSpeed *= .925f;
-                totalAttackCount++;
+                damage *= .9f;
                 CancelInvoke();
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }

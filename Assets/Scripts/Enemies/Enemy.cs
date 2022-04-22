@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
         _damage.SetActive(false);
         health -= 1;
     }
-    IEnumerator TakeSnipeDamage()
+    public IEnumerator TakeSnipeDamage()
     {
         takingSnipeDamage = true;
         _sniperDamage.SetActive(true);
@@ -114,6 +114,19 @@ public class Enemy : MonoBehaviour
     {
         StartCoroutine(Zap());
        
+    }
+
+    public IEnumerator TakeSnipeDamage(float damage)
+    {
+        print(health + "b");
+        takingSnipeDamage = true;
+        _sniperDamage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _sniperDamage.SetActive(false);
+        health = (int)(health * damage);
+        health -= 5;
+        print(health + "a");
+        takingSnipeDamage = false;
     }
 
 }
