@@ -54,7 +54,7 @@ public class TowerTile : MonoBehaviour
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (tier < 20)
+        if (tier < 10)
         {
             if (_moneyManager.makePurchase(2 * cost))
             {
@@ -65,6 +65,13 @@ public class TowerTile : MonoBehaviour
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
         }
-        
+        else if (tier == 10)
+        {
+            tier++;
+            attackSpeed *= .7f;
+            CancelInvoke();
+            InvokeRepeating("Shoot", 0, attackSpeed);
+        }
+
     }
 }

@@ -65,7 +65,7 @@ public class BombScript : MonoBehaviour
                     break;
                     }
             transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, .045f);
-            yield return new WaitForSeconds(.001f);
+            yield return new WaitForSeconds(.0002f);
         }
         Explode();
     }

@@ -13,7 +13,7 @@ public class ElectricTower : TowerTile
     {
         cost = 150;
         attackSpeed = 3.5f;
-        _rangeIndicator.transform.localScale = new Vector3(2, 2, 2);
+        _rangeIndicator.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
         InvokeRepeating("Shoot", 0, attackSpeed);
     }
 
@@ -32,7 +32,7 @@ public class ElectricTower : TowerTile
             foreach (Enemy enemy in enemyManager.enemyList)
             {
                 float dist = Vector3.Distance(enemy.transform.position, transform.position);
-                if (dist < 2)
+                if (dist < 2.5)
                 {
                     enemy.InvokeRepeating("TakeElectricDamage",0, 1);
                 }
@@ -49,7 +49,7 @@ public class ElectricTower : TowerTile
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (tier < 7)
+        if (tier < 10)
         {
             if (_moneyManager.makePurchase(2 *cost))
             {
@@ -58,6 +58,13 @@ public class ElectricTower : TowerTile
                 CancelInvoke();
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
+        }
+        else if (tier == 10)
+        {
+            tier++;
+            attackSpeed *= .5f;
+            CancelInvoke();
+            InvokeRepeating("Shoot", 0, attackSpeed);
         }
     }
 }

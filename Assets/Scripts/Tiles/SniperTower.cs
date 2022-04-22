@@ -54,5 +54,13 @@ public class SniperTower : TowerTile
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
         }
+        else if (tier == 10)
+        {
+            tier++;
+            attackSpeed *= .5f;
+            damage *= .7f;
+            CancelInvoke();
+            InvokeRepeating("Shoot", 0, attackSpeed);
+        }
     }
 }

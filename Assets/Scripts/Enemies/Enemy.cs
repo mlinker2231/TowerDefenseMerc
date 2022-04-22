@@ -81,10 +81,10 @@ public class Enemy : MonoBehaviour
 
     IEnumerator TakeDamage()
     {
+        health -= 1;
         _damage.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         _damage.SetActive(false);
-        health -= 1;
     }
     public IEnumerator TakeSnipeDamage()
     {
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
         _sniperDamage.SetActive(true);
         yield return new WaitForSeconds(1f);
         _sniperDamage.SetActive(false);
-        health -= 100;
+        health -= 1000;
 
     }
     IEnumerator TakeBombDamage()
@@ -124,7 +124,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _sniperDamage.SetActive(false);
         health = (int)(health * damage);
-        health -= 5;
+        health -= (int)(6 / damage);
         print(health + "a");
         takingSnipeDamage = false;
     }

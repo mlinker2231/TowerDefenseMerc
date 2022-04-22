@@ -29,7 +29,7 @@ public class BombTower : TowerTile
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (tier < 5)
+        if (tier < 10)
         {
             if (_moneyManager.makePurchase(2 *cost))
             {
@@ -38,6 +38,14 @@ public class BombTower : TowerTile
                 CancelInvoke();
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
+
+        }
+        else if (tier == 10)
+        {
+            tier++;
+            attackSpeed *= .4f;
+            CancelInvoke();
+            InvokeRepeating("Shoot", 0, attackSpeed);
         }
     }
 }
