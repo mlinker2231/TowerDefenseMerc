@@ -56,14 +56,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnNormalEnemy(int x)
     {
-        int multiplier = 1;
-        if (level % 25 == 0)
-            multiplier *= 5;
         var spawnedEnemy = Instantiate(_enemyPrefab, new Vector3(0, _height, -1), Quaternion.identity);
         spawnedEnemy.name = $"Enemy {x}";
         spawnedEnemy.transform.Translate(new Vector3(0, 0));
-        spawnedEnemy.health += level * multiplier / 2;
-        spawnedEnemy._speed += (float)level / (4.7f * multiplier);
+        spawnedEnemy.health += level / 2;
+        spawnedEnemy._speed += (float)level / (4.7f);
         enemyList.Add(spawnedEnemy);
     }
 
