@@ -43,22 +43,22 @@ public class SniperTower : TowerTile
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (tier < 10)
+        if (tier < 5)
         {
             if (_moneyManager.makePurchase(2* cost))
             {
                 tier++;
-                attackSpeed *= .925f;
-                damage *= .9f;
+                attackSpeed *= .9f;
+                damage *= .875f;
                 CancelInvoke();
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
         }
-        else if (tier == 10)
+        else if (tier == 5)
         {
             tier++;
             attackSpeed *= .5f;
-            damage *= .7f;
+            damage *= .65f;
             CancelInvoke();
             InvokeRepeating("Shoot", 0, attackSpeed);
         }

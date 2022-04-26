@@ -49,7 +49,7 @@ public class ElectricTower : TowerTile
     protected void upgrade()
     {
         _moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
-        if (tier < 10)
+        if (tier < 5)
         {
             if (_moneyManager.makePurchase(2 *cost))
             {
@@ -59,7 +59,7 @@ public class ElectricTower : TowerTile
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
         }
-        else if (tier == 10)
+        else if (tier == 55)
         {
             tier++;
             attackSpeed *= .5f;

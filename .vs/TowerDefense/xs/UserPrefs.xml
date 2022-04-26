@@ -1,26 +1,26 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tiles/TowerTile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tiles/BombTower.cs">
     <Files>
       <File FileName="Assets/Scripts/SaveeLoad/PlayerData.cs" Line="10" Column="6" IsPinned="True" />
-      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" />
-      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" />
-      <File FileName="Assets/Scripts/Tiles/BombTower.cs" />
+      <File FileName="Assets/Scripts/Tiles/ElectricTower.cs" Line="65" Column="30" />
+      <File FileName="Assets/Scripts/Tiles/SniperTower.cs" Line="51" Column="34" />
+      <File FileName="Assets/Scripts/Tiles/BombTower.cs" Line="10" Column="32" />
       <File FileName="Assets/Scripts/Tiles/TowerTile.cs" Line="71" Column="30" />
       <File FileName="Assets/Scripts/MoneyManager.cs" />
       <File FileName="Assets/Scripts/Shoot/BulletScript.cs" />
-      <File FileName="Assets/Scripts/Tiles/Tile.cs" />
+      <File FileName="Assets/Scripts/Tiles/Tile.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/LifeManager.cs" />
-      <File FileName="Assets/Scripts/Shoot/BombScript.cs" />
+      <File FileName="Assets/Scripts/Shoot/BombScript.cs" Line="49" Column="6" />
       <File FileName="Assets/Scripts/Restart.cs" />
-      <File FileName="Assets/Scripts/Enemies/BossEnemy.cs" />
-      <File FileName="Assets/Scripts/Enemies/Enemy.cs" />
+      <File FileName="Assets/Scripts/Enemies/BossEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemies/Enemy.cs" Line="96" Column="1" />
       <File FileName="Assets/Scripts/SaveeLoad/SaveData.cs" />
-      <File FileName="Assets/Scripts/Enemies/EnemySpawner.cs" />
+      <File FileName="Assets/Scripts/Enemies/EnemySpawner.cs" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3c7776f1-fdba-4125-9104-38ac1c566485" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a2c0b2c2-cce9-4467-ba88-a9299a92a1ac" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

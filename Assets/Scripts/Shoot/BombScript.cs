@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
+    public int damage = 2;
+    public float explodeArea = 1.25f;
+
     private EnemySpawner enemyManager;
     void Start()
     {
@@ -49,9 +52,9 @@ public class BombScript : MonoBehaviour
         foreach (Enemy enemy in enemyManager.enemyList)
         {
             // distance between this object and enemy position <= 1.5
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= 1.25)
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= explodeArea)
             {                
-                    enemy.StartCoroutine("TakeBombDamage");
+                    enemy.StartCoroutine(enemy.TakeBombDamage(damage));
             }
         }
         Destroy(gameObject);
@@ -65,7 +68,7 @@ public class BombScript : MonoBehaviour
                     break;
                     }
             transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, .045f);
-            yield return new WaitForSeconds(.0002f);
+            yield return new WaitForSeconds(.00001f);
         }
         Explode();
     }

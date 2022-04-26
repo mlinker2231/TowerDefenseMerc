@@ -25,6 +25,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        if (level % 25 == 0)
+        {
+            _numberOfEnemies = 25;
+        }
         spawningEnemies = true;
         if (level % 5 != 0)
         {
@@ -41,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             for (int x = 0; x <= level / 5; x++)
             {
             
-                double secondsWaited = 3;
+                double secondsWaited = 3 - (level / 25);
                 yield return new WaitForSeconds(((float)secondsWaited));
                 SpawnBossEnemy(x);
             }
@@ -52,11 +56,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnNormalEnemy(int x)
     {
+        int multiplier = 1;
+        if (level % 25 == 0)
+            multiplier *= 5;
         var spawnedEnemy = Instantiate(_enemyPrefab, new Vector3(0, _height, -1), Quaternion.identity);
         spawnedEnemy.name = $"Enemy {x}";
         spawnedEnemy.transform.Translate(new Vector3(0, 0));
-        spawnedEnemy.health += level / 2;
-        spawnedEnemy._speed += (float)level / 4.7f;
+        spawnedEnemy.health += level * multiplier / 2;
+        spawnedEnemy._speed += (float)level / (4.7f * multiplier);
         enemyList.Add(spawnedEnemy);
     }
 

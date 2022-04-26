@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         health -= 1000;
 
     }
-    IEnumerator TakeBombDamage()
+    public IEnumerator TakeBombDamage(int damage)
     {
         health -= 2;
         _bombDamage.SetActive(true);
