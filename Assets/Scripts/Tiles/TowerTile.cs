@@ -68,7 +68,7 @@ public class TowerTile : MonoBehaviour
         else if (tier == 5)
         {
             tier++;
-            attackSpeed *= .2f;
+            attackSpeed *= .5f;
             CancelInvoke();
             InvokeRepeating("Shoot", 0, attackSpeed);
         }

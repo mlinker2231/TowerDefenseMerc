@@ -34,7 +34,7 @@ public class MoneyManager : MonoBehaviour
     public void killedEnemy()
     {
         money += 5;
-        money += 5 - (enemySpawner.level / 5);
+        money += 5 - (enemySpawner.level / 10);
         moneyText.text = "$" + money;
 
     }

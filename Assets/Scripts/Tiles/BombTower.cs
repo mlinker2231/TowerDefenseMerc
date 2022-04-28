@@ -38,7 +38,8 @@ public class BombTower : TowerTile
             {
                 tier++;
                 damage++;
-                attackSpeed *= .8f;
+                attackSpeed *= .75f;
+                area += .1f;
                 CancelInvoke();
                 InvokeRepeating("Shoot", 0, attackSpeed);
             }
@@ -47,7 +48,7 @@ public class BombTower : TowerTile
         else if (tier == 5)
         {
             tier++;
-            area = 2;
+            area += .7f;
             attackSpeed *= .4f;
             CancelInvoke();
             InvokeRepeating("Shoot", 0, attackSpeed);

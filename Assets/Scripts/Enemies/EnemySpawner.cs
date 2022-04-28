@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
         spawningEnemies = true;
         if (level % 5 != 0)
         {
-            _numberOfEnemies += level / 2;
+            _numberOfEnemies += level * 2 / 3;
             for (int x = 0; x <= _numberOfEnemies; x++)
             {
                 double secondsWaited = ((1 / (2 * Mathf.Pow(level + 1, 3))) * (7 * Mathf.Pow(level + 1, 1.9f)));

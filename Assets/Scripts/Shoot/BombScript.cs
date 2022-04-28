@@ -61,13 +61,13 @@ public class BombScript : MonoBehaviour
     }
     IEnumerator Move(Enemy enemy)
     {
-        for (int x = 0; x < 35; x++)
+        for (int x = 0; x < 25; x++)
         {
             if (enemy == null) {
-                Destroy(gameObject);
+                Explode();
                     break;
                     }
-            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, .055f);
+            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, .085f);
             yield return new WaitForSeconds(0);
         }
         Explode();
