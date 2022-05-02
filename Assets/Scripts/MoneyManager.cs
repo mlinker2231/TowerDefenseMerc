@@ -16,7 +16,7 @@ public class MoneyManager : MonoBehaviour
     }
 
   
-
+    
     public bool makePurchase(int cost)
     {
 
