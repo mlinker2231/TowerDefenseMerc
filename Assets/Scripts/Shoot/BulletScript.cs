@@ -59,12 +59,16 @@ public class BulletScript : MonoBehaviour
             {
                 isOnEnemy = true;
             }
-            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, .045f);
+            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, .115f);
                 yield return new WaitForSeconds(0);
         
             }
-        if (closestEnemy == null) yield break;
-            closestEnemy.StartCoroutine("TakeDamage");
+        if (closestEnemy == null)
+        { 
+            Destroy(gameObject);
+            yield break;
+        }
+        closestEnemy.StartCoroutine("TakeDamage");
         Destroy(gameObject);
         }
 

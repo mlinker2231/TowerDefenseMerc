@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
                 var position = gameObject.transform.position;
                 if (position.x < 2)
                     gameObject.transform.Translate(new Vector3(speed, 0));
-                if (position.x > 2 && position.x <= 2.5)
+                if (position.x > 2 && position.x <= 3.5)
                 {
                     if (position.y <= 8)
                         gameObject.transform.Translate(new Vector3(0, speed));
