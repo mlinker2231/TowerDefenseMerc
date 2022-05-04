@@ -59,7 +59,7 @@ public class BulletScript : MonoBehaviour
             {
                 isOnEnemy = true;
             }
-            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, .115f);
+            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.transform.position, .175f);
                 yield return new WaitForSeconds(0);
         
             }

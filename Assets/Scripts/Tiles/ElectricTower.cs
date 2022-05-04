@@ -61,10 +61,13 @@ public class ElectricTower : TowerTile
         }
         else if (tier == 55)
         {
-            tier++;
-            attackSpeed *= .5f;
-            CancelInvoke();
-            InvokeRepeating("Shoot", 0, attackSpeed);
+            if (_moneyManager.makePurchase(2 * cost))
+            {
+                tier++;
+                attackSpeed *= .5f;
+                CancelInvoke();
+                InvokeRepeating("Shoot", 0, attackSpeed);
+            }
         }
     }
 }

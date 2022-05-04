@@ -47,11 +47,14 @@ public class BombTower : TowerTile
         }
         else if (tier == 5)
         {
-            tier++;
-            area += .7f;
-            attackSpeed *= .4f;
-            CancelInvoke();
-            InvokeRepeating("Shoot", 0, attackSpeed);
+            if (_moneyManager.makePurchase(2 * cost))
+            {
+                tier++;
+                area += .7f;
+                attackSpeed *= .66f;
+                CancelInvoke();
+                InvokeRepeating("Shoot", 0, attackSpeed);
+            }
         }
     }
 }

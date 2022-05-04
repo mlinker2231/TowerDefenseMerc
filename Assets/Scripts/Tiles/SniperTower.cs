@@ -56,11 +56,14 @@ public class SniperTower : TowerTile
         }
         else if (tier == 5)
         {
-            tier++;
-            attackSpeed *= .5f;
-            damage *= .65f;
-            CancelInvoke();
-            InvokeRepeating("Shoot", 0, attackSpeed);
+            if (_moneyManager.makePurchase(2 * cost))
+            {
+                tier++;
+                attackSpeed *= .5f;
+                damage *= .65f;
+                CancelInvoke();
+                InvokeRepeating("Shoot", 0, attackSpeed);
+            }
         }
     }
 }
